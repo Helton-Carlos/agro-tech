@@ -5,7 +5,7 @@
         <h3 class="text-h5 q-mb-md text-black text-weight-bold">Login</h3>
         <q-form @submit.prevent="onLogin">
           <q-input
-            v-model="email"
+            v-model="login.email"
             label="Email"
             type="email"
             :rules="[(val) => !!val || 'Informe o email']"
@@ -13,7 +13,7 @@
             class="q-mb-md"
           />
           <q-input
-            v-model="password"
+            v-model="login.password"
             label="Senha"
             type="password"
             :rules="[(val) => !!val || 'Informe a senha']"
@@ -38,22 +38,35 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useUserStore } from '../stores/useUserStore';
 
 const router = useRouter();
-const email = ref('');
-const password = ref('');
-const loading = ref(false);
+const { setUser } = useUserStore();
+const login = reactive({
+  email: '',
+  password: '',
+});
+const loading = ref<boolean>(false);
 const error = ref('');
 
 function onLogin(): void {
   loading.value = true;
   error.value = '';
 
+  const { email, password } = login;
   loading.value = false;
-  if (email.value === 'admin@teste.com' && password.value === '123456') {
+
+  if (email === 'admin@teste.com' && password === 'admin@teste.com') {
     error.value = '';
+
+    setUser({
+      email: login.email,
+      password: login.password,
+      token: 'tokeyn123456',
+    });
+
     void router.push('/');
   } else {
     error.value = 'Email ou senha inválidos';

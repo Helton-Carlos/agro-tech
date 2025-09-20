@@ -8,6 +8,8 @@ export const useUserStore = defineStore('user', () => {
 
   function setUser(newUser: User) {
     user.value = newUser;
+
+    localStorage.setItem('user', JSON.stringify(newUser));
   }
 
   function clearUser() {
