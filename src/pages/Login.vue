@@ -1,25 +1,62 @@
 <template>
   <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
-    <div>
-      <div style="font-size: 30vh">404</div>
-
-      <div class="text-h2" style="opacity: 0.4">Oops. Nothing here...</div>
-
-      <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
-        unelevated
-        to="/"
-        label="Go Home"
-        no-caps
-      />
-    </div>
+    <q-card class="q-pa-lg" style="min-width: 500px">
+      <q-card-section>
+        <h3 class="text-h5 q-mb-md text-black text-weight-bold">Login</h3>
+        <q-form @submit.prevent="onLogin">
+          <q-input
+            v-model="email"
+            label="Email"
+            type="email"
+            :rules="[(val) => !!val || 'Informe o email']"
+            filled
+            class="q-mb-md"
+          />
+          <q-input
+            v-model="password"
+            label="Senha"
+            type="password"
+            :rules="[(val) => !!val || 'Informe a senha']"
+            filled
+            class="q-mb-md"
+          />
+          <q-btn
+            label="Entrar"
+            color="primary"
+            type="submit"
+            class="full-width"
+            :loading="loading"
+            no-caps
+          />
+        </q-form>
+        <q-banner v-if="error" class="bg-red-2 text-red q-mt-md">
+          {{ error }}
+        </q-banner>
+      </q-card-section>
+    </q-card>
   </div>
 </template>
 
 <script setup lang="ts">
-defineOptions({
-  name: 'LoginPage',
-});
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const email = ref('');
+const password = ref('');
+const loading = ref(false);
+const error = ref('');
+
+function onLogin(): void {
+  loading.value = true;
+  error.value = '';
+
+  loading.value = false;
+  if (email.value === 'admin@teste.com' && password.value === '123456') {
+    error.value = '';
+    void router.push('/');
+  } else {
+    error.value = 'Email ou senha inválidos';
+  }
+}
 </script>
