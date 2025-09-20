@@ -3,7 +3,8 @@ import type { User } from '../types/user';
 import { ref, computed } from 'vue';
 
 export const useUserStore = defineStore('user', () => {
-  const user = ref<User | null>(null);
+  const user = ref<User | null>(JSON.parse(localStorage.getItem('user') || 'null'));
+
   const isAuthenticated = computed(() => !!user.value);
 
   function setUser(newUser: User) {
@@ -14,6 +15,8 @@ export const useUserStore = defineStore('user', () => {
 
   function clearUser() {
     user.value = null;
+
+    localStorage.removeItem('user');
   }
 
   return {

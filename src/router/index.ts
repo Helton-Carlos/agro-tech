@@ -6,6 +6,7 @@ import {
   createWebHistory,
 } from 'vue-router';
 import routes from './routes';
+import { useUserStore } from 'src/stores/useUserStore';
 
 export default defineRouter(function () {
   const createHistory = process.env.SERVER
@@ -20,5 +21,16 @@ export default defineRouter(function () {
     history: createHistory(process.env.VUE_ROUTER_BASE),
   });
 
+  Router.beforeEach((to, __, next) => {
+    const userStore = useUserStore();
+
+    if (to.path !== '/login' && !userStore.isAuthenticated) {
+      next('/login');
+    } else if (to.path === '/login' && userStore.isAuthenticated) {
+      next('/');
+    } else {
+      next();
+    }
+  });
   return Router;
 });

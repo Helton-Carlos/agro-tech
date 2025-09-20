@@ -2,7 +2,9 @@
   <div class="fullscreen bg-primary text-white text-center q-pa-md flex flex-center">
     <q-card class="q-pa-lg" style="min-width: 500px">
       <q-card-section>
-        <h3 class="text-h5 q-mb-md text-black text-weight-bold">Login</h3>
+        <h3 class="text-h5 q-mb-md text-black text-weight-bold">{{ title }}</h3>
+
+        {{ hidden }}
         <q-form @submit.prevent="onLogin">
           <q-input
             v-model="login.email"
@@ -38,18 +40,24 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { computed, reactive, ref } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import { useUserStore } from '../stores/useUserStore';
 
 const router = useRouter();
+const route = useRoute();
 const { setUser } = useUserStore();
 const login = reactive({
   email: '',
   password: '',
 });
 const loading = ref<boolean>(false);
-const error = ref('');
+const error = ref<string>('');
+const hidden = ref<string>('admin@test.com');
+
+const title = computed<string>(() => {
+  return (route.meta.title as string) || '';
+});
 
 function onLogin(): void {
   loading.value = true;

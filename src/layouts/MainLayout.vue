@@ -5,6 +5,8 @@
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title> Agro Tech </q-toolbar-title>
+
+        <q-btn flat dense round icon="logout" aria-label="Logout" @click="logout" />
       </q-toolbar>
     </q-header>
 
@@ -24,7 +26,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useUserStore } from 'src/stores/useUserStore';
 import EssentialLink, { type EssentialLinkProps } from 'components/EssentialLink.vue';
+
+const router = useRouter();
+const { clearUser } = useUserStore();
 
 const linksList: EssentialLinkProps[] = [
   {
@@ -75,5 +82,11 @@ const leftDrawerOpen = ref(false);
 
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
+}
+
+function logout() {
+  clearUser();
+
+  void router.push('/login');
 }
 </script>

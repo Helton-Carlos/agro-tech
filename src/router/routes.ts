@@ -9,6 +9,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/login',
     component: () => import('pages/Login.vue'),
+    meta: { title: 'Login' },
   },
   {
     path: '/:catchAll(.*)*',
