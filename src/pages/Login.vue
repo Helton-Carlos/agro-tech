@@ -1,5 +1,5 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+  <div class="fullscreen bg-primary text-white text-center q-pa-md flex flex-center">
     <q-card class="q-pa-lg" style="min-width: 500px">
       <q-card-section>
         <h3 class="text-h5 q-mb-md text-black text-weight-bold">Login</h3>
@@ -58,7 +58,7 @@ function onLogin(): void {
   const { email, password } = login;
   loading.value = false;
 
-  if (email === 'admin@teste.com' && password === 'admin@teste.com') {
+  if (email === 'admin@test.com' && password === 'admin@test.com') {
     error.value = '';
 
     setUser({
