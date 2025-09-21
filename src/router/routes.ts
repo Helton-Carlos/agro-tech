@@ -8,7 +8,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         component: () => import('pages/IndexPage.vue'),
-        meta: { title: 'Dashboard' },
+        meta: {
+          title: 'Dashboard',
+          subtitle: 'Controle e monitoramento da produção.',
+        },
       },
     ],
   },

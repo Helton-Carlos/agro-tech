@@ -1,5 +1,14 @@
 <template>
-  <div class="fullscreen bg-primary text-center q-pa-md flex flex-center">
+  <div
+    class="fullscreen text-center q-pa-md flex flex-center"
+    :style="{
+      backgroundImage:
+        'url(https://cdn.pixabay.com/photo/2018/07/09/18/40/nature-3526840_960_720.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+    }"
+  >
     <q-card class="q-pa-lg" style="min-width: 500px">
       <q-card-section>
         <CardTitle />
