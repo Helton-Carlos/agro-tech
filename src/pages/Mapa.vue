@@ -1,12 +1,14 @@
 <template>
-  <q-page class="q-h-full q-pa-md">
-    <div ref="mapContainer" class="map-container"></div>
+  <q-page padding>
+    <CardTitle />
+    <div class="map-container" ref="mapContainer"></div>
   </q-page>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue';
 import type { Lugar } from 'src/types/mapa';
+import CardTitle from 'src/components/CardTitle.vue';
 
 const mapContainer = ref<HTMLDivElement | null>(null);
 let map: maplibregl.Map | null = null;
@@ -56,7 +58,10 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .map-container {
-  width: 100%;
-  height: 100vh;
+  width: 80%;
+  height: 80vh;
+  margin-left: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 </style>
