@@ -15,11 +15,11 @@
       </q-card>
 
       <q-card class="q-pa-md q-ma-md">
-        <p>Numero de grãos</p>
+        <p>Vendas</p>
         <ApexCharts
-          type="bar"
-          :options="productOptions"
-          :series="productSeries"
+          type="pie"
+          :options="salesOptions"
+          :series="salesSeries"
           :width="widthCard"
           height="350"
         />
@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { productSeries, productOptions } from 'src/chart/dashboard';
+import { productSeries, salesSeries, productOptions, salesOptions } from 'src/chart/dashboard';
 import CardTitle from 'src/components/CardTitle.vue';
 import { isTablet } from 'src/composable/useBreakpoints';
 import { computed } from 'vue';
