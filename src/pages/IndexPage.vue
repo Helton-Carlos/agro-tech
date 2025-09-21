@@ -1,14 +1,38 @@
 <template>
   <q-page padding>
     <CardTitle />
-    <q-card class="min-w-[200px] q-pa-md">
-      <p>Numero de grãos</p>
-      <ApexCharts type="bar" :options="options" :series="series" height="350" />
-    </q-card>
+
+    <div :class="{ flex: widthCard }">
+      <q-card class="q-pa-md q-ma-md">
+        <p>Numero de grãos</p>
+        <ApexCharts
+          type="bar"
+          :options="productOptions"
+          :series="productSeries"
+          :width="widthCard"
+          height="350"
+        />
+      </q-card>
+
+      <q-card class="q-pa-md q-ma-md">
+        <p>Numero de grãos</p>
+        <ApexCharts
+          type="bar"
+          :options="productOptions"
+          :series="productSeries"
+          :width="widthCard"
+          height="350"
+        />
+      </q-card>
+    </div>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { series, options } from 'src/utils/chartOptions';
+import { productSeries, productOptions } from 'src/chart/dashboard';
 import CardTitle from 'src/components/CardTitle.vue';
+import { isTablet } from 'src/composable/useBreakpoints';
+import { computed } from 'vue';
+
+const widthCard = computed(() => (isTablet.value ? '350' : '750'));
 </script>

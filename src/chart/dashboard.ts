@@ -1,4 +1,4 @@
-export const series = [
+export const productSeries = [
   {
     name: 'Produção de grãos',
     data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
@@ -13,7 +13,7 @@ export const series = [
   },
 ];
 
-export const options = {
+export const productOptions = {
   chart: {
     type: 'bar',
     height: 350,
