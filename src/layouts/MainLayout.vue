@@ -4,7 +4,10 @@
       <q-toolbar>
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title> Agro Tech </q-toolbar-title>
+        <q-toolbar-title class="flex items-center">
+          <img src="/public/icons/agro-tech.png" alt="Logo Agro-Tech" width="40" height="40" />
+          Agrotech
+        </q-toolbar-title>
 
         <q-btn flat dense round icon="logout" aria-label="Logout" @click="logout" />
       </q-toolbar>
