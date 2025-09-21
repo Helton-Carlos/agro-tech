@@ -4,7 +4,7 @@
 
     <div :class="{ flex: widthCard }">
       <q-card class="q-pa-md q-ma-md">
-        <p>Numero de grãos</p>
+        <p class="text-bold">Numero de grãos</p>
         <ApexCharts
           type="bar"
           :options="productOptions"
@@ -15,7 +15,7 @@
       </q-card>
 
       <q-card class="q-pa-md q-ma-md">
-        <p>Vendas</p>
+        <p class="text-bold">Vendas</p>
         <ApexCharts
           type="pie"
           :options="salesOptions"
