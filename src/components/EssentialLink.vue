@@ -1,6 +1,6 @@
 <template>
-  <q-item clickable>
-    <q-item-section v-if="icon" :to="link" avatar>
+  <q-item clickable :to="link">
+    <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>
 

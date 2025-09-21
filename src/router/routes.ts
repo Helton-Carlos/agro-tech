@@ -13,6 +13,14 @@ const routes: RouteRecordRaw[] = [
           subtitle: 'Controle e monitoramento da produção.',
         },
       },
+      {
+        path: '/mapa',
+        component: () => import('pages/Mapa.vue'),
+        meta: {
+          title: 'Mapa',
+          subtitle: 'Mapa controle de produção.',
+        },
+      },
     ],
   },
   {

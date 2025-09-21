@@ -41,7 +41,13 @@ const linksList: EssentialLinkProps[] = [
     title: 'Dashboard',
     caption: 'Gráficos e estatísticas',
     icon: 'dashboard',
-    link: '',
+    link: '/',
+  },
+  {
+    title: 'Mapa',
+    caption: 'Mapa e estatísticas',
+    icon: 'mapa',
+    link: '/mapa',
   },
 ];
 
