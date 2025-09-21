@@ -17,9 +17,11 @@
   "dependencies": {
     "@quasar/extras": "^1.16.4",
     "@vueuse/core": "^13.9.0",
+    "apexcharts": "^5.3.5",
     "quasar": "^2.16.0",
     "vue": "3.5.20",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vue3-apexcharts": "^1.8.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
