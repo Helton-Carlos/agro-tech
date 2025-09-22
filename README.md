@@ -1,12 +1,10 @@
-# agro-tech (agro-tech)
+# Agro Tech
 
-Projeto voltado a organização da area agro
+Projeto refere-se ao agronegócio.
 
 ## Install the dependencies
 
 ```bash
-yarn
-# or
 npm install
 ```
 
@@ -14,21 +12,19 @@ npm install
 
 ```bash
 quasar dev
+# or
+npm run dev
 ```
 
 ### Lint the files
 
 ```bash
-yarn lint
-# or
 npm run lint
 ```
 
 ### Format the files
 
 ```bash
-yarn format
-# or
 npm run format
 ```
 
@@ -37,7 +33,3 @@ npm run format
 ```bash
 quasar build
 ```
-
-### Customize the configuration
-
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
